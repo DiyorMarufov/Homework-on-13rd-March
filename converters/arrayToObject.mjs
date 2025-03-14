@@ -1,32 +1,20 @@
-import process from "process"
 
-function arrayToObj(arg,arg1){
+export function arrayToObj(arg1){
     
     try {
-        let arr = []
 
-        if(arg === "Array"){
-           for(let i in arg1){
-              arr.push(arg1[i])      
-           }
+        let arr = JSON.parse(arg1)
 
-           let key = arr.slice(2,7).join("")
-           let value = arr.slice(8,arr.length - 2).join("")
-           
-           let obj = {key,value}
-           
-           let formatted = {[obj.key.slice(0,-1)]:obj.value}
-           return JSON.stringify(formatted)
+        if(!Array.isArray(arr) || arr.some(item => !Array.isArray(item) || item.length !== 2)){
+            throw new Error("Invalid input")
         }
-        return arr
+        return JSON.stringify(Object.fromEntries(arr),null,2)
+    
     } catch (error) {
         console.error(error);
-        
     }
 }
 
-let arg = process.argv[2]
-let arg1 = process.argv[3]
-const obj = arrayToObj(arg,arg1)
-export {obj}
+
+
  

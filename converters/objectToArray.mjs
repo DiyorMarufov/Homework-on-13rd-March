@@ -1,20 +1,17 @@
-import process from "process"
-function objectToArray(arg,arg1){
+export function objectToArray(arg1){
     
     try {
-        let arr = []
-        if(arg === "Object"){
-           
-            
-        }else{
-            throw new Error("It is not an Object")
+        
+        let obj = JSON.parse(arg1)
+        if(typeof obj !== "object" || Array.isArray(obj) || obj === null){
+            throw new Error("it is not an Object")
         }
+        return Object.entries(obj)
+    
     } catch (error) {
         console.error(error);   
     }
 }
 
-let arg = process.argv[2]
-let arg1 = process.argv[3]
-const arr = objectToArray(arg,arg1)
-export {arr}
+
+

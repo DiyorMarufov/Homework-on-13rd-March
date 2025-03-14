@@ -1,16 +1,15 @@
-import process from "process"
-
-function filter(arg,arg1 = []){
+export function filter(arg){
     
-    if(arg === "filter"){
-       return arg1.filter(element =>{
-        element > 4
-       })
+    try {
+        if(arg.length === 0){
+            throw new Error("Length of array is not enought to execute.")
+        }else{
+    
+            let parseArr = JSON.parse(arg)
+            return parseArr.filter(element => element > 4) 
+        }
+    } catch (error) {
+        
     }
-    
 }
 
-let arg = process.argv[2]
-let arg1 = JSON.parse(process.argv[3] || "[]")
-let res = filter(arg,arg1)
-console.log(res);

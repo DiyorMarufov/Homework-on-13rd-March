@@ -1,5 +1,5 @@
-import {arr} from "./objectToArray.mjs"
-import {obj} from "./arrayToObject.mjs"
-import { boolean } from "./stringToBoolean.mjs"
+import {objectToArray} from "./objectToArray.mjs"
+import {arrayToObj} from "./arrayToObject.mjs"
+import {strToBoolean} from "./stringToBoolean.mjs"
 
-export {arr,obj,boolean}
+export {objectToArray,arrayToObj,strToBoolean}
